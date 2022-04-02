@@ -19,10 +19,10 @@ def preprocess(data):
 
   return data
 
-@app.route('/api/predict', methods=['GET'])
+@app.route('/api/predict', methods=['POST'])
 def home():
     modelUsed = ''
-    if(request.method == 'GET'):
+    if(request.method == 'POST'):
         vectorizer = joblib.load('models/vectorizer.pkl')
         if (request.json['model'] == 'DT'):
             model = joblib.load('models/DecisionTree_model.pkl')
